@@ -1,4 +1,6 @@
 import { Grid, GridItem, Flex, Box, Spacer } from "@chakra-ui/react";
+import Nav from "./components/Nav";
+import Header from "./components/Header";
 
 const Layout = () => {
   return (
@@ -7,42 +9,31 @@ const Layout = () => {
         templateAreas={`
           "header header"
           "nav main"
-          "nav footer"
         `}
-        gridTemplateRows={"50px 1fr 30px"}
+        gridTemplateRows={"50px 1fr"}
         gridTemplateColumns={"170px 1fr"}
         h="100vh"
         w="100vw"
-        gap="1"
         color="blackAlpha.700"
         bg="athensgray.100"
         fontWeight="bold"
       >
-        <GridItem bg="athensgray.50" area={"header"}>
-          <Flex minWidth="max-content" align="center" h="100%" justify="start">
-            <Box w="170px" bg="red" p="2">
-              Hello
-            </Box>
-            <Box bg="red" p="2" ml="2px">
-              Hello
-            </Box>
-            <Spacer />
-            <Box bg="red" p="2" mr="2px">
-              Hello
-            </Box>
-            <Box w="170px" bg="red" p="2">
-              Hello
-            </Box>
-          </Flex>
+        <GridItem bg="athensgray.50" area={"header"} display="flex">
+          <Header />
         </GridItem>
         <GridItem pl="2" bg="athensgray.50" area={"nav"}>
-          Nav
+          <Nav />
         </GridItem>
         <GridItem pl="2" bg="athensgray.50" area={"main"}>
-          Main
-        </GridItem>
-        <GridItem pl="2" bg="athensgray.50" area={"footer"}>
-          Footer
+          <Flex
+            bg="athensgray.100"
+            w="100%"
+            h="93.5vh"
+            p="20px"
+            borderTopLeftRadius="30px"
+          >
+            <h1>Hello</h1>
+          </Flex>
         </GridItem>
       </Grid>
     </div>

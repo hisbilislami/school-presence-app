@@ -3,9 +3,13 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import "@fontsource/lobster";
+// Supports weights 200-800
+import "@fontsource-variable/plus-jakarta-sans";
 
 const colors = {
   athensgray: {
+    DEFAULT: "#eaebef", // default
     "50": "#f6f7f8",
     "100": "#eaebef", // default
     "200": "#dadce3",
@@ -19,6 +23,7 @@ const colors = {
     "950": "#31313a",
   },
   frenchgray: {
+    DEFAULT: "#b7bac5", // default
     "50": "#f5f6f8",
     "100": "#eeeef1",
     "200": "#dfe2e6",
@@ -32,6 +37,7 @@ const colors = {
     "950": "#303136",
   },
   strikemaster: {
+    DEFAULT: "#91677d", // default
     "50": "#f9f6f8",
     "100": "#f4eff2",
     "200": "#eae0e7",
@@ -45,6 +51,7 @@ const colors = {
     "950": "#34232b",
   },
   abbey: {
+    DEFAULT: "#575458", // default
     "50": "#f6f5f6",
     "100": "#e7e6e7",
     "200": "#d2cfd2",
@@ -58,6 +65,7 @@ const colors = {
     "950": "#272527",
   },
   matisse: {
+    DEFAULT: "#1f70ad", // default
     "50": "#f2f8fd",
     "100": "#e4effa",
     "200": "#c4dff3",
@@ -71,7 +79,7 @@ const colors = {
     "950": "#112940",
   },
   pinkflare: {
-    main: "#e6cbd2", // default
+    DEFAULT: "#e6cbd2", // default
     "50": "#faf6f7",
     "100": "#f5ebee",
     "200": "#eedadf",
@@ -84,14 +92,35 @@ const colors = {
     "900": "#603c45",
     "950": "#331c22",
   },
+  cerulean: {
+    DEFAULT: "#03AFD4",
+    50: "#91EAFD",
+    100: "#7DE6FD",
+    200: "#55DFFD",
+    300: "#2DD7FC",
+    400: "#04D0FB",
+    500: "#03AFD4", // default
+    600: "#02819D",
+    700: "#015465",
+    800: "#01262E",
+    900: "#000000",
+    950: "#000000",
+  },
 };
 
-const theme = extendTheme({ colors });
+const theme = extendTheme({
+  colors,
+  fonts: {
+    dancingscript: `'Lobster', sans-serif`,
+    heading: `'Plus Jakarta Sans 700', sans-serif`,
+    body: `'Plus Jakarta Sans 400', sans-serif`,
+  },
+});
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
       <App />
     </ChakraProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
