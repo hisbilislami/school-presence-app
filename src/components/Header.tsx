@@ -47,13 +47,13 @@ const Header = () => {
           />{" "}
           School Presence
         </Box>
-        <Box p="2" pl="25px" ml="2px">
+        <Box p="2" pl="25px" w="500px" ml="20px">
           <InputGroup>
             <InputLeftElement pointerEvents="none">
               <Search2Icon color="athensgray.500" />
             </InputLeftElement>
             <Input
-              variant="filled"
+              variant="flushed"
               type="text"
               border="none"
               placeholder="Search ..."
@@ -66,11 +66,7 @@ const Header = () => {
         </Box>
         <Box w="170px" p="5px">
           <Menu>
-            <MenuButton
-              _hover={{ border: "none" }}
-              _focus={{ border: "none" }}
-              _active={{ border: "none" }}
-            >
+            <MenuButton _hover={{ borderColor: "transparent" }}>
               <Wrap
                 w="100%"
                 display="flex"
@@ -80,6 +76,8 @@ const Header = () => {
                 <WrapItem>
                   <Avatar
                     p="2px"
+                    h={50}
+                    w={50}
                     name="User Profile Pics"
                     src="https://bit.ly/dan-abramov"
                   />

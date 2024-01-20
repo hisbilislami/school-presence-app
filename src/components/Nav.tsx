@@ -14,8 +14,9 @@ const Nav = () => {
         flexDirection="column"
         justifyContent="space-between"
         pt="20px"
+        px="10px"
       >
-        <Stack direction="column" spacing={4} w="100%">
+        <Stack direction="column" spacing={4} mt={10} w="100%">
           <Link href="#">
             <Button
               leftIcon={<MdSpaceDashboard color="athensgray.50" />}

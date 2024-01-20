@@ -1,6 +1,7 @@
-import { Grid, GridItem, Flex, Box, Spacer } from "@chakra-ui/react";
+import { Grid, GridItem, Flex } from "@chakra-ui/react";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
+import Dashboard from "./pages/Dashboard";
 
 const Layout = () => {
   return (
@@ -10,8 +11,8 @@ const Layout = () => {
           "header header"
           "nav main"
         `}
-        gridTemplateRows={"50px 1fr"}
-        gridTemplateColumns={"170px 1fr"}
+        gridTemplateRows={"60px 1fr"}
+        gridTemplateColumns={"190px 1fr"}
         h="100vh"
         w="100vw"
         color="blackAlpha.700"
@@ -28,11 +29,14 @@ const Layout = () => {
           <Flex
             bg="athensgray.100"
             w="100%"
-            h="93.5vh"
-            p="20px"
+            h="92.5vh"
+            pl="30px"
+            pt="30px"
+            pr="5px"
+            pb="5px"
             borderTopLeftRadius="30px"
           >
-            <h1>Hello</h1>
+            <Dashboard></Dashboard>
           </Flex>
         </GridItem>
       </Grid>
