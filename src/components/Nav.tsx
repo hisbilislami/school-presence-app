@@ -3,9 +3,11 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { MdSpaceDashboard } from "react-icons/md";
 import { TbReportAnalytics } from "react-icons/tb";
 import { VscSettings } from "react-icons/vsc";
-import { Box, Link, Stack, Button } from "@chakra-ui/react";
+import { Box, Stack, Button } from "@chakra-ui/react";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Nav = () => {
+  const currentPath = useLocation().pathname;
   return (
     <div>
       <Box
@@ -17,10 +19,10 @@ const Nav = () => {
         px="10px"
       >
         <Stack direction="column" spacing={4} mt={10} w="100%">
-          <Link href="#">
+          <NavLink to="/">
             <Button
               leftIcon={<MdSpaceDashboard color="athensgray.50" />}
-              isActive={true}
+              /* isActive={true} */
               size="md"
               color="gray.500"
               fontSize={12}
@@ -41,12 +43,27 @@ const Nav = () => {
                 border: "none",
                 color: "white",
               }}
+              sx={{
+                // Use 'sx' for dynamic styling
+                ...(currentPath === "/" && {
+                  // Apply active styles if path matches
+                  background: "cerulean.DEFAULT",
+                  border: "none",
+                  color: "white",
+                }),
+                w: "100%",
+              }}
               w="100%"
             >
               Dashboard
             </Button>
-          </Link>
-          <Link href="#">
+          </NavLink>
+          <NavLink
+            to="/transaction"
+            className={({ isActive, isPending }) =>
+              isActive ? "active" : isPending ? "pending" : ""
+            }
+          >
             <Button
               leftIcon={<GoChecklist color="athensgray.50" />}
               size="md"
@@ -69,12 +86,22 @@ const Nav = () => {
                 border: "none",
                 color: "white",
               }}
+              sx={{
+                // Use 'sx' for dynamic styling
+                ...(currentPath === "/transaction" && {
+                  // Apply active styles if path matches
+                  background: "cerulean.DEFAULT",
+                  border: "none",
+                  color: "white",
+                }),
+                w: "100%",
+              }}
               w="100%"
             >
               Transaction
             </Button>
-          </Link>
-          <Link href="#">
+          </NavLink>
+          <NavLink to="/report">
             <Button
               leftIcon={<TbReportAnalytics color="athensgray.50" />}
               size="md"
@@ -97,12 +124,22 @@ const Nav = () => {
                 border: "none",
                 color: "white",
               }}
+              sx={{
+                // Use 'sx' for dynamic styling
+                ...(currentPath === "/report" && {
+                  // Apply active styles if path matches
+                  background: "cerulean.DEFAULT",
+                  border: "none",
+                  color: "white",
+                }),
+                w: "100%",
+              }}
               w="100%"
             >
               Report
             </Button>
-          </Link>
-          <Link href="#">
+          </NavLink>
+          <NavLink to="/setting">
             <Button
               leftIcon={<VscSettings color="athensgray.50" />}
               size="md"
@@ -125,14 +162,24 @@ const Nav = () => {
                 border: "none",
                 color: "white",
               }}
+              sx={{
+                // Use 'sx' for dynamic styling
+                ...(currentPath === "/setting" && {
+                  // Apply active styles if path matches
+                  background: "cerulean.DEFAULT",
+                  border: "none",
+                  color: "white",
+                }),
+                w: "100%",
+              }}
               w="100%"
             >
               Setting
             </Button>
-          </Link>
+          </NavLink>
         </Stack>
 
-        <Link href="#">
+        <NavLink to="#">
           <Button
             leftIcon={<IoLogOutOutline />}
             size="md"
@@ -149,7 +196,7 @@ const Nav = () => {
           >
             Logout
           </Button>
-        </Link>
+        </NavLink>
       </Box>
     </div>
   );

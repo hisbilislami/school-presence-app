@@ -1,7 +1,7 @@
 import { Grid, GridItem, Flex } from "@chakra-ui/react";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
-import Dashboard from "./pages/Dashboard";
+import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
@@ -12,7 +12,7 @@ const Layout = () => {
           "nav main"
         `}
         gridTemplateRows={"60px 1fr"}
-        gridTemplateColumns={"190px 1fr"}
+        gridTemplateColumns={"200px 1fr"}
         h="100vh"
         w="100vw"
         color="blackAlpha.700"
@@ -36,7 +36,7 @@ const Layout = () => {
             pb="5px"
             borderTopLeftRadius="30px"
           >
-            <Dashboard></Dashboard>
+            <Outlet />
           </Flex>
         </GridItem>
       </Grid>

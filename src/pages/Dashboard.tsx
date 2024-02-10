@@ -1,7 +1,6 @@
 import {
   Box,
   Heading,
-  Spacer,
   Stack,
   Stat,
   StatArrow,

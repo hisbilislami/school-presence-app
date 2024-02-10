@@ -6,6 +6,9 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import "@fontsource/lobster";
 // Supports weights 200-800
 import "@fontsource-variable/plus-jakarta-sans";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Dashboard from "./pages/Dashboard.tsx";
+import Transaction from "./pages/Transaction.tsx";
 
 const colors = {
   athensgray: {
@@ -108,6 +111,23 @@ const colors = {
   },
 };
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Dashboard />,
+      },
+      {
+        path: "/transaction",
+        element: <Transaction />,
+      },
+    ],
+  },
+]);
+
 const theme = extendTheme({
   colors,
   fonts: {
@@ -120,7 +140,7 @@ const theme = extendTheme({
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
-      <App />
+      <RouterProvider router={router}></RouterProvider>
     </ChakraProvider>
   </React.StrictMode>
 );
